@@ -4,9 +4,9 @@ Source code for the professional portfolio of Jibin John, PhD, highlighting work
 
 ## Live Website
 
-**[Visit the live website](https://jibin-homepage-draft.jibinjohnv.chatgpt.site)**
+**[Visit the GitHub-hosted website](https://jibinjohnv.github.io/jibin-john-website/)**
 
-Built with [Vinext](https://github.com/cloudflare/vinext) and deployed through ChatGPT Sites.
+Built with [Vinext](https://github.com/cloudflare/vinext) and published as a static site through GitHub Pages.
 
 ## Prerequisites
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "Bioinformatics, scientific data analysis, statistical genetics, multi-omics and applied AI/ML.",
     images: ["/og.png"],
   },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: `${SITE_URL}/favicon.svg`, shortcut: `${SITE_URL}/favicon.svg` },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
