@@ -8,7 +8,7 @@ const nextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   turbopack: {
-    root: "/workspace/sites/jibin-homepage-draft",
+    root: process.cwd(),
     rules: {
       "*.md": {
         loaders: ["./scripts/raw-loader.cjs"],
