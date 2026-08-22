@@ -1,10 +1,12 @@
 import { conferencePublications, journalArticles, preprints, researchPrograms } from "./data";
+import { CapabilityGroups } from "./components/CapabilityGroups";
+import { ProcessJourney, type ProcessStep } from "./components/ProcessJourney";
 import { SectionHeading, Site } from "./components/SiteChrome";
 
 const capabilities = [
   {
     title: "GWAS Analysis",
-    detail: "Phenotype and covariate design · sample, relatedness and ancestry QC · variant and imputation QC · association modelling · inflation diagnostics · summary-statistic QC, harmonization and visualization · cohort meta-analysis",
+    detail: "Phenotype and covariate design · sample, relatedness and ancestry QC · variant and imputation QC · association modeling · inflation diagnostics · summary-statistic QC, harmonization and visualization · cohort meta-analysis",
     references: [
       { label: "Truong et al., 2022", href: "https://doi.org/10.1002/cpz1.603" },
     ],
@@ -64,7 +66,7 @@ const capabilities = [
   },
   {
     title: "Bulk RNA-seq Analysis",
-    detail: "Read QC · alignment or pseudoalignment · gene and transcript quantification · low-count filtering and normalization · exploratory and batch assessment · design-matrix modelling · differential expression and splicing · gene-set and co-expression analysis",
+    detail: "Read QC · alignment or pseudoalignment · gene and transcript quantification · low-count filtering and normalization · exploratory and batch assessment · design-matrix modeling · differential expression and splicing · gene-set and co-expression analysis",
     references: [
       { label: "Tzec-Interián et al., 2025", href: "https://doi.org/10.1002/qub2.78" },
     ],
@@ -110,7 +112,7 @@ const capabilities = [
   },
   {
     title: "Biostatistics & High-Dimensional Data Analysis",
-    detail: "Question and study-design review · data auditing · regression and generalized linear models · covariate and interaction modelling · model diagnostics and assumptions · multiple-testing control · effect sizes and uncertainty · sensitivity analysis · scientific visualization",
+    detail: "Question and study-design review · data auditing · regression and generalized linear models · covariate and interaction modeling · model diagnostics and assumptions · multiple-testing control · effect sizes and uncertainty · sensitivity analysis · scientific visualization",
     references: [
       { label: "Dwivedi & Shukla, 2019", href: "https://doi.org/10.1002/cnr2.1211" },
       { label: "Liu et al., 2023", href: "https://doi.org/10.1111/sjos.12695" },
@@ -172,7 +174,7 @@ const capabilityGroups = [
     id: "transcriptomics-multi-omics",
     label: "Transcriptomics & Multi-Omics",
     kicker: "Molecular phenotypes and regulatory biology",
-    intro: "Bulk, single-cell, epigenomic and proteomic data analysed in biological context.",
+    intro: "Bulk, single-cell, epigenomic and proteomic data analyzed in biological context.",
     capabilities: [capabilities[8], capabilities[9], capabilities[10], capabilities[11]],
     links: [
       { label: "Related research", href: "/research" },
@@ -203,12 +205,47 @@ const capabilityGroups = [
   },
 ];
 
-const process = [
-  ["01", "Understand", "Question & data"],
-  ["02", "Validate", "QC & assumptions"],
-  ["03", "Analyse", "Methods & scale"],
-  ["04", "Interpret", "Biological meaning"],
-  ["05", "Deliver", "Reproducible outputs"],
+const process: ProcessStep[] = [
+  {
+    number: "01",
+    title: "Understand",
+    subtitle: "Question, design & data",
+    description: "Define the scientific question, study design, data types, samples, measurements, comparisons and intended outputs; review provenance, analytical scope, available metadata and feasibility before starting.",
+    tools: ["Study design", "Data provenance", "Analytical scope"],
+    icon: "understand",
+  },
+  {
+    number: "02",
+    title: "Validate",
+    subtitle: "Quality, harmonization & assumptions",
+    description: "Verify sample identities and metadata; assess data quality, missingness, contamination, technical artifacts, batch effects and outliers; harmonize formats and features, and evaluate assumptions and potential sources of bias.",
+    tools: ["Quality control", "Harmonization", "Bias assessment"],
+    icon: "validate",
+  },
+  {
+    number: "03",
+    title: "Analyze",
+    subtitle: "Methods, uncertainty & scale",
+    description: "Select methods appropriate to the question and data—from sequence processing and molecular quantification to statistical modeling, clustering, prediction and multi-omics integration—while preserving uncertainty and scaling computation responsibly.",
+    tools: ["Python", "R", "HPC", "Cloud"],
+    icon: "analyze",
+  },
+  {
+    number: "04",
+    title: "Interpret",
+    subtitle: "Evidence, context & limitations",
+    description: "Integrate analytical results with genetic, molecular, cellular, clinical or ecological evidence; evaluate robustness, replication and alternative explanations; and distinguish supported conclusions from unresolved hypotheses.",
+    tools: ["Evidence integration", "Sensitivity", "Replication"],
+    icon: "interpret",
+  },
+  {
+    number: "05",
+    title: "Deliver",
+    subtitle: "Reproducible results & downstream use",
+    description: "Deliver reusable code, versioned workflows, traceable QC, analysis-ready data, result tables and clear figures. Document assumptions and limitations so the work can be reproduced, interpretations evaluated and outputs reused in downstream research.",
+    tools: ["Git", "Docker", "Interpretation", "Downstream reuse"],
+    icon: "deliver",
+  },
 ];
 
 const specializations = [
@@ -239,9 +276,10 @@ export default function Home() {
           </ul>
           <div className="hero-actions"><a className="button button-primary" href="/about">About me <span aria-hidden="true">→</span></a><a className="button button-secondary" href="/publications">Publications</a><a className="button button-secondary" href="/skills-specializations">Technical skills</a></div>
           <div className="profile-links" aria-label="Professional profiles">
-            <a href="https://scholar.google.com/citations?user=vBDV0QkAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="View Jibin John's Google Scholar profile (opens in a new tab)"><span className="profile-logo scholar-logo">GS</span>Google Scholar ↗</a>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=jibin+john+" target="_blank" rel="noreferrer" aria-label="View Jibin John's publications on PubMed (opens in a new tab)"><span className="profile-logo pubmed-logo">P</span>PubMed ↗</a>
-            <a href="https://www.linkedin.com/in/jibin-john-46b18a171/" target="_blank" rel="noreferrer" aria-label="View Jibin John's LinkedIn profile (opens in a new tab)"><span className="profile-logo linkedin-logo">in</span>LinkedIn ↗</a>
+            <a href="https://scholar.google.com/citations?user=vBDV0QkAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="View Jibin John's Google Scholar profile (opens in a new tab)">Google Scholar ↗</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=jibin+john+" target="_blank" rel="noreferrer" aria-label="View Jibin John's publications on PubMed (opens in a new tab)">PubMed ↗</a>
+            <a href="https://www.linkedin.com/in/jibin-john-46b18a171/" target="_blank" rel="noreferrer" aria-label="View Jibin John's LinkedIn profile (opens in a new tab)">LinkedIn ↗</a>
+            <a href="https://github.com/JIBINJOHNV" target="_blank" rel="noreferrer" aria-label="View Jibin John's GitHub profile (opens in a new tab)">GitHub ↗</a>
           </div>
         </div>
         <div className="portrait-wrap home-portrait">
@@ -264,28 +302,7 @@ export default function Home() {
         <nav className="capability-jump-nav" aria-label="Jump to a capability group">
           {capabilityGroups.map((group) => <a href={`#${group.id}`} key={group.id}>{group.label}</a>)}
         </nav>
-        <div className="capability-groups">
-          {capabilityGroups.map((group, groupIndex) => (
-            <details className={`capability-group capability-group-${groupIndex + 1}`} id={group.id} key={group.id}>
-              <summary className="capability-group-heading">
-                <div>
-                  <span aria-hidden="true">{String(groupIndex + 1).padStart(2, "0")}</span>
-                  <p>{group.kicker}</p>
-                  <h3>{group.label}</h3>
-                </div>
-                <p>{group.capabilities.map((capability) => capability.title).join(", ")}</p>
-              </summary>
-              <ol className="home-capability-list">
-                {group.capabilities.map((capability) => (
-                  <li key={capability.title}>
-                    <strong>{capability.title}</strong>
-                    <p>{capability.detail}</p>
-                  </li>
-                ))}
-              </ol>
-            </details>
-          ))}
-        </div>
+        <CapabilityGroups groups={capabilityGroups} />
         <div className="capability-cta">
           <div>
             <p>Project conversations</p>
@@ -296,8 +313,14 @@ export default function Home() {
       </section>
 
       <section className="home-process-section"><div className="page-shell">
-        <div className="home-process-intro"><p className="eyebrow light"><span />How I work</p><h2>A reproducible path from raw data to a useful result.</h2><p>Strong analysis is not only a method. It is the connected process of data validation, appropriate modelling, biological interpretation and transparent delivery.</p></div>
-        <div className="home-process" role="list" aria-label="Scientific data analysis workflow">{process.map((step, index) => <div className="home-process-step" role="listitem" key={step[1]}><span>{step[0]}</span><strong>{step[1]}</strong><small>{step[2]}</small>{index < process.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
+        <div className="home-process-intro">
+          <p className="eyebrow light"><span />How I work</p>
+          <div className="home-process-lead">
+            <h2>A reproducible path from raw data to biological insight.</h2>
+            <p>Strong analysis is never a single method. It is a connected chain of decisions—linking the scientific question to validated data, statistically appropriate models, biological interpretation and transparent delivery. Every decision, assumption and limitation stays traceable from raw files to the final figure.</p>
+          </div>
+        </div>
+        <ProcessJourney steps={process} />
       </div></section>
 
       <section className="section page-shell">

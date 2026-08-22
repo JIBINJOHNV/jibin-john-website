@@ -118,13 +118,6 @@ export function SpecializationAccordion({
                 id={`specialization-details-${activeSpecialization.number}`}
                 role="region"
               >
-                <header className="specialization-expanded-heading">
-                  <span>{activeSpecialization.number}</span>
-                  <div>
-                    <p>Expanded specialization</p>
-                    <h3>{activeSpecialization.title}</h3>
-                  </div>
-                </header>
                 <DetailContent blocks={activeSpecialization.blocks} />
               </section>
             ) : null}

@@ -482,7 +482,7 @@ export const experiences: Experience[] = [
       {
         title: "Knowledge graphs & data engineering",
         items: [
-          "Modelled biomedical knowledge in RDF and queried it through SPARQL to connect variants with genes, phenotypes, diseases, clinical evidence and therapeutics.",
+          "Modeled biomedical knowledge in RDF and queried it through SPARQL to connect variants with genes, phenotypes, diseases, clinical evidence and therapeutics.",
           "Integrated ClinVar, OMIM, HPO, Orphanet, DECIPHER, ClinGen, GenCC, LOVD, COSMIC, CIViC, PharmGKB, DrugCentral and DisGeNET.",
           "Used Python, RDFLib, SPARQL, APIs, Amazon S3 and EC2 to build and deploy scalable data-processing components.",
         ],
@@ -715,7 +715,7 @@ export const experiences: Experience[] = [
   },
   {
     period: "AUG-2012–DEC-2012",
-    role: "Academic Health Science Fellow",
+    role: "Academic Health Science Fellow (Concurrent Doctoral Fellowship)",
     organization: "University of Pittsburgh · NIH Fogarty International Center Tri-National Training Program in Psychiatric Genetics",
     location: "Pittsburgh, USA",
     institutions: [
@@ -850,7 +850,7 @@ export const researchPrograms = [
   {
     title: "Ulcerative-colitis exome sequencing",
     metric: "160 cases · 379 controls · whole-exome sequencing",
-    copy: "Gene-based rare-variant analysis in an Indian cohort, identifying candidate genes linked to epithelial integrity, DNA repair, intracellular trafficking and immune signalling.",
+    copy: "Gene-based rare-variant analysis in an Indian cohort, identifying candidate genes linked to epithelial integrity, DNA repair, intracellular trafficking and immune signaling.",
     publication: {
       venue: "Human Genomics",
       brand: "human-genomics",

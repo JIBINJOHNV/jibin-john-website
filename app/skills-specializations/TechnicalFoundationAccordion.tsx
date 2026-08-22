@@ -29,7 +29,7 @@ const foundationAreas: FoundationArea[] = [
       },
       {
         label: "R",
-        text: "Statistical analysis; genetic and genomic analysis; Bioconductor workflows; regression and multivariate modelling; multiple-testing correction; scientific visualization; publication-ready tables and figures.",
+        text: "Statistical analysis; genetic and genomic analysis; Bioconductor workflows; regression and multivariate modeling; multiple-testing correction; scientific visualization; publication-ready tables and figures.",
       },
       {
         label: "Bash",
@@ -83,7 +83,7 @@ const foundationAreas: FoundationArea[] = [
     code: "DATA",
     title: "Data Science & Statistical Computing",
     summary:
-      "Data preparation, exploratory analysis, statistical modelling and traceable scientific delivery.",
+      "Data preparation, exploratory analysis, statistical modeling and traceable scientific delivery.",
     technologies: [
       "pandas",
       "Polars",
@@ -103,7 +103,7 @@ const foundationAreas: FoundationArea[] = [
       },
       {
         label: "Statistical analysis",
-        text: "Linear and generalized linear models; covariate and interaction modelling; effect-size estimation; uncertainty assessment; multiple-testing correction; sensitivity analysis and high-dimensional inference.",
+        text: "Linear and generalized linear models; covariate and interaction modeling; effect-size estimation; uncertainty assessment; multiple-testing correction; sensitivity analysis and high-dimensional inference.",
       },
       {
         label: "Scientific delivery",
@@ -155,7 +155,7 @@ const foundationAreas: FoundationArea[] = [
       },
       {
         label: "Interpretation",
-        text: "Model coefficients; tree-based feature importance; permutation importance; partial-dependence assessment; error analysis; model-behaviour review and biologically informed interpretation.",
+        text: "Model coefficients; tree-based feature importance; permutation importance; partial-dependence assessment; error analysis; model-behavior review and biologically informed interpretation.",
       },
       {
         label: "Applied AI",
@@ -191,7 +191,7 @@ const foundationAreas: FoundationArea[] = [
       },
       {
         label: "Publication-ready figures",
-        text: "Figure development using ggplot2, matplotlib and seaborn; consistent themes; informative annotation; legends and scales; accessible colour selection; multi-panel composition; vector and high-resolution raster export.",
+        text: "Figure development using ggplot2, matplotlib and seaborn; consistent themes; informative annotation; legends and scales; accessible color selection; multi-panel composition; vector and high-resolution raster export.",
       },
       {
         label: "Reproducible reporting",
@@ -268,14 +268,6 @@ export function TechnicalFoundationAccordion() {
                   .replace(/^-|-$/g, "")}`}
                 role="region"
               >
-                <header className="foundation-expanded-heading">
-                  <span>{activeArea.code}</span>
-                  <div>
-                    <p>Expanded technical foundation</p>
-                    <h3>{activeArea.title}</h3>
-                  </div>
-                </header>
-
                 <div className="foundation-core-technologies" aria-label="Core technologies">
                   <strong>Core technologies</strong>
                   <div>
