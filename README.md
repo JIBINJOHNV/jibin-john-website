@@ -1,8 +1,12 @@
-# vinext-starter
+# Jibin John, PhD — Professional Website
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Source code for the professional portfolio of Jibin John, PhD, highlighting work across bioinformatics, computational biology, statistical genetics, genomics, multi-omics and reproducible scientific computing.
+
+## Live Website
+
+**[Visit the live website](https://jibin-homepage-draft.jibinjohnv.chatgpt.site)**
+
+Built with [Vinext](https://github.com/cloudflare/vinext) and deployed through ChatGPT Sites.
 
 ## Prerequisites
 
