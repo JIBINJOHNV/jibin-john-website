@@ -3,7 +3,8 @@ import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const appDirectory = fileURLToPath(new URL("../app/", import.meta.url));
-const basePath = "/jibin-john-website";
+const basePath =
+  process.env.NEXT_PUBLIC_SITE_BASE_PATH ?? "/jibin-john-website";
 
 async function visit(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {

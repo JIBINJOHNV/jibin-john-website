@@ -1,4 +1,4 @@
-name: Publish old website to GitHub Pages
+name: Publish both website themes to GitHub Pages
 
 on:
   push:
@@ -22,35 +22,74 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the old website source
+      - name: Check out the old website
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: old-site
+
+      - name: Check out Ocean Blue and Soft Rose
+        uses: actions/checkout@v4
+        with:
+          ref: ocean-blue-soft-rose
+          path: ocean-site
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22.13.0"
           cache: npm
+          cache-dependency-path: |
+            old-site/package-lock.json
+            ocean-site/package-lock.json
 
-      - name: Install dependencies
+      - name: Install old website dependencies
+        working-directory: old-site
         run: npm ci
 
-      - name: Prepare GitHub Pages paths
+      - name: Prepare old website paths
+        working-directory: old-site
+        env:
+          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website
         run: node scripts/prepare-github-pages.mjs
 
-      - name: Build the static website
+      - name: Build old website
+        working-directory: old-site
         env:
           NEXT_PUBLIC_BASE_URL: https://jibinjohnv.github.io/jibin-john-website
+          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website
         run: npx next build
+
+      - name: Install Ocean Blue and Soft Rose dependencies
+        working-directory: ocean-site
+        run: npm ci
+
+      - name: Prepare Ocean Blue and Soft Rose paths
+        working-directory: ocean-site
+        env:
+          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/ocean-blue-soft-rose
+        run: node scripts/prepare-github-pages.mjs
+
+      - name: Build Ocean Blue and Soft Rose
+        working-directory: ocean-site
+        env:
+          NEXT_PUBLIC_BASE_URL: https://jibinjohnv.github.io/jibin-john-website/ocean-blue-soft-rose
+          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/ocean-blue-soft-rose
+        run: npx next build
+
+      - name: Combine both versions
+        run: |
+          mkdir -p pages-artifact/ocean-blue-soft-rose
+          cp -R old-site/out/. pages-artifact/
+          cp -R ocean-site/out/. pages-artifact/ocean-blue-soft-rose/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
-      - name: Upload the static website
+      - name: Upload both websites
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./pages-artifact
 
       - name: Deploy to GitHub Pages
         id: deployment
