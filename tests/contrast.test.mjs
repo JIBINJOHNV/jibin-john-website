@@ -14,12 +14,12 @@ function contrast(foreground, background) {
 }
 
 const smallTextPairs = [
-  ["rose accent on deep ocean", "#d6aaa7", "#234453"],
-  ["light rose accent on ocean", "#f0cdca", "#315d70"],
-  ["body text on ocean section", "#f3f6f7", "#477487"],
-  ["muted text on ocean card", "#edf2f3", "#3d687a"],
-  ["heading text on ocean card", "#fbf8f7", "#3d687a"],
-  ["deep ocean CTA text on soft rose", "#234453", "#d6aaa7"],
+  ["dusty coral accent on deep oxblood", "#C98274", "#321C20"],
+  ["warm blush accent on wine", "#EAD8D3", "#5A2E35"],
+  ["body text on brick section", "#F1E5E2", "#6B3A40"],
+  ["muted text on brick card", "#D8C5C3", "#6B3A40"],
+  ["heading text on brick card", "#F7EFEC", "#6B3A40"],
+  ["deep oxblood CTA text on dusty coral", "#321C20", "#C98274"],
 ];
 
 test("small brand text meets WCAG AA contrast", () => {
