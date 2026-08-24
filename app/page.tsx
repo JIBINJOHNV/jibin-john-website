@@ -274,8 +274,8 @@ export default function Home() {
             <span>Bioinformatician · Computational Biologist</span>
             <small className="hero-affiliation">Research Scientist · <a href="https://feinstein.northwell.edu/" target="_blank" rel="noreferrer" aria-label="Visit The Feinstein Institutes for Medical Research, Northwell Health website (opens in a new tab)">The Feinstein Institutes for Medical Research, Northwell Health <span aria-hidden="true">↗</span></a></small>
           </div>
-          <h1>I find the biology hiding in <em>population-scale genetic data.</em></h1>
-          <p className="hero-lead">Research Scientist at The Feinstein Institutes for Medical Research, Northwell Health. I build statistical-genetics workflows for psychiatric, cognitive and imaging genomics—from approximately 4,000 brain-imaging phenotypes in UK Biobank to 4,719 circulating proteins tested against psychiatric and cognitive traits.</p>
+          <h1>I turn complex biological data into <em>reliable, interpretable insight.</em></h1>
+          <p className="hero-lead">I develop rigorous, reproducible computational workflows across statistical genetics, sequencing, functional and clinical genomics, multi-omics, and applied data science—connecting scientific questions to biological evidence that can be interpreted, reviewed, and reused.</p>
           <ul className="hero-specializations" aria-label="Areas of specialization">
             {specializations.map((specialization) => <li key={specialization}>{specialization}</li>)}
           </ul>
