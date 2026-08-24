@@ -53,18 +53,41 @@ For the website, each numbered specialization should appear as a concise card. T
 
 **Scope:** Germline exome and genome interpretation support through phenotype-aware prioritization, evidence assessment, segregation review, and genotype–phenotype synthesis.
 
-**Workflow:** Clinical question, phenotype, and pedigree review → HPO term curation → sequencing, coverage, and variant-call quality assessment → assay-supported review of SNVs, indels, CNVs, structural variants, or repeat expansions when indicated → population-frequency annotation → transcript and molecular-consequence annotation → disease, functional, and segregation-evidence collection → inheritance-model filtering → phenotype-to-gene and phenotype-to-disease matching → de novo, compound-heterozygous, homozygous, dominant, recessive, mitochondrial, and X-linked model review as appropriate → ACMG/AMP-oriented evidence assessment using current gene- and disease-specific refinements → genotype–phenotype synthesis → CNV interpretation support → candidate prioritization → expert review → periodic reinterpretation as evidence evolves.
+#### 01. Phenotype-Driven Clinical Exome & Genome Analysis
 
-**Analytical branches:** Singleton analysis · trio/family analysis · SNV/indel interpretation · CNV/SV interpretation · phenotype-first prioritization · periodic reinterpretation.
+**Subtitle:** Variant filtering, inheritance modeling & candidate prioritization
 
-**Selected tools & resources:**
+**Description:** Analyze high-confidence germline variants using technical quality, ancestry-aware population frequency, molecular consequence, inheritance pattern, segregation and HPO-encoded phenotype. Produce a ranked set of candidate variants and genes for detailed evaluation.
 
-- **Variant annotation and prioritization:** Ensembl VEP · ANNOVAR · SnpEff · Exomiser · LIRICAL · InterVar
-- **CNV and structural-variant support:** AnnotSV · ExomeDepth · XHMM · GATK gCNV · CNV-ClinViewer · CNVannotator
-- **Repeat-expansion screening, where technically supported:** ExpansionHunter
-- **Clinical evidence:** ClinVar · OMIM · Human Phenotype Ontology · Orphanet · DECIPHER · ClinGen · GenCC · LOVD · gnomAD · Genomics England PanelApp
-- **Oncology and pharmacogenomic resources, when relevant:** COSMIC · CIViC · PharmGKB · DrugCentral
-- **Structured evidence integration:** Python · R · RDFLib · SPARQL
+**Selected tools & resources:** VEP · ANNOVAR · gnomAD · HPO · Exomiser · LIRICAL · OMIM
+
+#### 02. ACMG/AMP Germline Variant Classification
+
+**Subtitle:** Evidence-based classification of SNVs & small indels
+
+**Description:** Evaluate candidate germline sequence variants using population, computational, functional, segregation, de novo, allelic and disease-mechanism evidence. Assign pathogenic, likely pathogenic, uncertain significance, likely benign or benign classifications with supporting evidence codes and rationale.
+
+**Scientific note:** Applies to germline SNVs and small indels; copy-number variants require a separate evidence framework.
+
+**Selected tools & resources:** ACMG/AMP · ClinGen SVI · ClinVar · gnomAD · SpliceAI · REVEL · CADD · VarSome
+
+#### 03. CNV & Structural-Variant Interpretation
+
+**Subtitle:** Dosage, genomic-interval & structural evidence
+
+**Description:** Assess deletions, duplications, intragenic CNVs and other constitutional structural variants using gene content, dosage sensitivity, genomic mechanism, population frequency, inheritance, segregation, phenotype concordance and published case evidence.
+
+**Scientific note:** Uses the distinct ACMG/ClinGen quantitative framework for constitutional copy-number variants.
+
+**Selected tools & resources:** AnnotSV · ClinGen Dosage Sensitivity · DECIPHER · DGV · gnomAD-SV · CNV-ClinViewer
+
+#### 04. Clinical Evidence Synthesis, Reanalysis & Reporting Support
+
+**Subtitle:** Gene–disease validity, case relevance & evolving evidence
+
+**Description:** Integrate gene–disease validity, disease mechanism, phenotype concordance, segregation, published cases and functional evidence to determine whether a classified variant plausibly explains the individual’s presentation. Organize primary, secondary, carrier and uncertain findings; document limitations; and support periodic reinterpretation as evidence evolves.
+
+**Selected tools & resources:** ClinGen · GenCC · ClinVar · OMIM · HPO · PubMed
 
 ---
 

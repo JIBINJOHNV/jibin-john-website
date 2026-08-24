@@ -6,14 +6,59 @@ export type DetailBlock =
   | { type: "text"; label: string; text: string }
   | { type: "resources"; items: Array<{ label?: string; text: string }> };
 
+export type ClinicalStage = {
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  resources: string[];
+  note?: string;
+};
+
 export type Specialization = {
   number: string;
   title: string;
   scope: string;
   blocks: DetailBlock[];
+  stages?: ClinicalStage[];
 };
 
-function DetailContent({ blocks }: { blocks: DetailBlock[] }) {
+function ClinicalStageGrid({ stages }: { stages: ClinicalStage[] }) {
+  return (
+    <div className="clinical-stage-grid">
+      {stages.map((stage) => (
+        <article className="clinical-stage-card" key={stage.number}>
+          <header>
+            <span aria-hidden="true">{stage.number}</span>
+            <div>
+              <h4>{stage.title}</h4>
+              <p>{stage.subtitle}</p>
+            </div>
+          </header>
+          <p className="clinical-stage-description">{stage.description}</p>
+          {stage.note ? <p className="clinical-stage-note">{stage.note}</p> : null}
+          <ul aria-label={`${stage.title} tools and resources`} className="clinical-stage-resources">
+            {stage.resources.map((resource) => <li key={resource}>{resource}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function DetailContent({ blocks, stages }: { blocks: DetailBlock[]; stages?: ClinicalStage[] }) {
+  if (stages?.length) {
+    return (
+      <div className="specialization-details specialization-details-clinical">
+        <p className="clinical-stage-intro">
+          Four distinct analytical outputs move a case from phenotype-informed candidate discovery
+          to evidence-based interpretation and responsible clinical handoff.
+        </p>
+        <ClinicalStageGrid stages={stages} />
+      </div>
+    );
+  }
+
   return (
     <div className="specialization-details">
       {blocks.map((block, blockIndex) => {
@@ -118,7 +163,10 @@ export function SpecializationAccordion({
                 id={`specialization-details-${activeSpecialization.number}`}
                 role="region"
               >
-                <DetailContent blocks={activeSpecialization.blocks} />
+                <DetailContent
+                  blocks={activeSpecialization.blocks}
+                  stages={activeSpecialization.stages}
+                />
               </section>
             ) : null}
           </div>

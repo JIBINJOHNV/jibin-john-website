@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero, ScienceFigure, SectionHeading, Site } from "../components/SiteChrome";
 import {
   SpecializationAccordion,
+  type ClinicalStage,
   type DetailBlock,
   type Specialization,
 } from "./SpecializationAccordion";
@@ -54,6 +55,25 @@ function parseDetailBlocks(body: string): DetailBlock[] {
     });
 }
 
+function parseClinicalStages(body: string): ClinicalStage[] {
+  const stages: ClinicalStage[] = [];
+  const stagePattern =
+    /^#### (\d{2})\. (.+)\n\n\*\*Subtitle:\*\* (.+)\n\n\*\*Description:\*\* (.+)\n\n(?:\*\*Scientific note:\*\* (.+)\n\n)?\*\*Selected tools & resources:\*\* (.+)$/gm;
+
+  for (const match of body.matchAll(stagePattern)) {
+    stages.push({
+      number: match[1],
+      title: cleanInline(match[2]),
+      subtitle: cleanInline(match[3]),
+      description: cleanInline(match[4]),
+      note: match[5] ? cleanInline(match[5]) : undefined,
+      resources: match[6].split(" · ").map(cleanInline),
+    });
+  }
+
+  return stages;
+}
+
 function parseSpecializations(markdown: string): Specialization[] {
   const specializations: Specialization[] = [];
   const sectionPattern =
@@ -67,6 +87,7 @@ function parseSpecializations(markdown: string): Specialization[] {
       title: match[2].trim(),
       scope: cleanInline(scope),
       blocks: parseDetailBlocks(body),
+      stages: parseClinicalStages(body),
     });
   }
 
