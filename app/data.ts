@@ -821,7 +821,7 @@ export const researchPrograms = [
     publication: {
       venue: "medRxiv",
       brand: "medrxiv",
-      impact: "Preprint · JIF not applicable",
+      impact: "25 latent phenotypes · 104 novel loci",
       href: "https://doi.org/10.64898/2026.04.27.26351743",
     },
   },
@@ -832,7 +832,7 @@ export const researchPrograms = [
     publication: {
       venue: "JAMA Psychiatry",
       brand: "jama",
-      impact: "Journal Impact Factor · 18",
+      impact: "113 Bonferroni-significant associations · 46 novel",
       href: "https://doi.org/10.1001/jamapsychiatry.2025.0033",
     },
   },
@@ -843,7 +843,7 @@ export const researchPrograms = [
     publication: {
       venue: "Biological Psychiatry",
       brand: "biological-psychiatry",
-      impact: "2025 Journal Impact Factor · 10.3",
+      impact: "768 pleiotropic loci · 166 novel",
       href: "https://doi.org/10.1016/j.biopsych.2025.02.890",
     },
   },
@@ -854,7 +854,7 @@ export const researchPrograms = [
     publication: {
       venue: "Human Genomics",
       brand: "human-genomics",
-      impact: "2025 Journal Impact Factor · 4.1",
+      impact: "160 cases · 379 controls",
       href: "https://doi.org/10.1186/s40246-026-00994-z",
     },
   },
@@ -865,7 +865,7 @@ export const researchPrograms = [
     publication: {
       venue: "Schizophrenia Bulletin",
       brand: "schizophrenia-bulletin",
-      impact: "2025 Journal Impact Factor · 5.7",
+      impact: "5-generation family · 370-exome cohort",
       href: "https://doi.org/10.1093/schbul/sbx196",
     },
   },
