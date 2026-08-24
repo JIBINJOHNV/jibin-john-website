@@ -3310,3 +3310,61 @@ body {
   .clinical-stage-card header > span { width: 38px; height: 38px; }
   .clinical-stage-card h4 { font-size: 16px; }
 }
+
+/* A category with one specialization should read as a complete row, not a half-empty pair. */
+.specialization-pair-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.specialization-pair-single .specialization-card {
+  min-height: 0;
+  padding: 28px;
+}
+
+.specialization-pair-single .specialization-card-copy {
+  display: grid;
+  grid-template-columns: minmax(280px, .85fr) minmax(420px, 1.15fr);
+  grid-template-rows: auto auto;
+  column-gap: 48px;
+}
+
+.specialization-pair-single .specialization-kicker {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.specialization-pair-single .specialization-title {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.specialization-pair-single .specialization-scope {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 2px;
+}
+
+.specialization-pair-single .specialization-prompt {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  margin-top: 15px;
+}
+
+@media (max-width: 1100px) {
+  .specialization-pair-single .specialization-card {
+    padding: 24px 20px;
+  }
+
+  .specialization-pair-single .specialization-card-copy {
+    display: block;
+  }
+
+  .specialization-pair-single .specialization-scope {
+    margin-top: 14px;
+  }
+
+  .specialization-pair-single .specialization-prompt {
+    margin-top: 19px;
+  }
+}

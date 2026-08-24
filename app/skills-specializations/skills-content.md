@@ -49,7 +49,7 @@ For the website, each numbered specialization should appear as a concise card. T
 
 ## Clinical Genomics
 
-### 03. Clinical Genomics & Variant Interpretation
+### 03. Clinical Genomics
 
 **Scope:** Germline exome and genome interpretation support through phenotype-aware prioritization, evidence assessment, segregation review, and genotype–phenotype synthesis.
 

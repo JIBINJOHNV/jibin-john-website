@@ -120,7 +120,7 @@ export function SpecializationAccordion({
 
         return (
           <div
-            className={`specialization-pair${
+            className={`specialization-pair${pair.length === 1 ? " specialization-pair-single" : ""}${
               activePosition ? ` active-${activePosition === 1 ? "first" : "second"}` : ""
             }`}
             key={pair[0].number}

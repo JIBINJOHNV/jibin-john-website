@@ -176,7 +176,11 @@ export default function SkillsPage() {
                 return (
                   <section className="specialization-category" id={category.id} key={category.id}>
                     <header className="specialization-category-heading">
-                      <span>{category.numbers[0]}–{category.numbers[category.numbers.length - 1]}</span>
+                      <span>
+                        {category.numbers.length === 1
+                          ? category.numbers[0]
+                          : `${category.numbers[0]}–${category.numbers[category.numbers.length - 1]}`}
+                      </span>
                       <div>
                         <h2>{category.title}</h2>
                         <p>{category.intro}</p>
