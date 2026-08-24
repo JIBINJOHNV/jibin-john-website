@@ -103,6 +103,28 @@ export function SpecializationAccordion({
   specializations: Specialization[];
 }) {
   const [activeNumber, setActiveNumber] = useState<string | null>(null);
+  const staticSpecialization =
+    specializations.length === 1 && specializations[0].stages?.length
+      ? specializations[0]
+      : null;
+
+  if (staticSpecialization) {
+    return (
+      <div className="specialization-pairs specialization-pairs-static">
+        <section
+          aria-label={`${staticSpecialization.title} workflow`}
+          className="specialization-expanded-panel specialization-expanded-panel-static"
+          role="region"
+        >
+          <DetailContent
+            blocks={staticSpecialization.blocks}
+            stages={staticSpecialization.stages}
+          />
+        </section>
+      </div>
+    );
+  }
+
   const pairs = Array.from(
     { length: Math.ceil(specializations.length / 2) },
     (_, pairIndex) => specializations.slice(pairIndex * 2, pairIndex * 2 + 2),

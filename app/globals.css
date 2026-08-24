@@ -3316,6 +3316,10 @@ body {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.specialization-expanded-panel-static {
+  border-top-width: 1px;
+}
+
 .specialization-pair-single .specialization-card {
   min-height: 0;
   padding: 28px;
