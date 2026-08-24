@@ -11,3 +11,4 @@ function normalizeSiteUrl(value: string | undefined) {
 
 export const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_BASE_URL);
 export const SITE_ORIGIN = new URL(`${SITE_URL}/`);
+export const SITE_BASE_PATH = (process.env.NEXT_PUBLIC_SITE_BASE_PATH ?? "").replace(/\/+$/, "");

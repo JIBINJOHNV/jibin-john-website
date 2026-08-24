@@ -1,5 +1,12 @@
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function LearningPage() {
-  redirect("/continuing-education");
+  return (
+    <main className="redirect-page">
+      <meta httpEquiv="refresh" content="0; url=../continuing-education/" />
+      <h1>Continuing Education</h1>
+      <p>This page has moved.</p>
+      <Link href="/continuing-education">Open the continuing-education record</Link>
+    </main>
+  );
 }

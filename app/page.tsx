@@ -1,7 +1,10 @@
-import { conferencePublications, journalArticles, preprints, researchPrograms } from "./data";
+import { conferencePublications, journalArticles, researchPrograms } from "./data";
+import Image from "next/image";
+import Link from "next/link";
 import { CapabilityGroups } from "./components/CapabilityGroups";
 import { ProcessJourney, type ProcessStep } from "./components/ProcessJourney";
 import { SectionHeading, Site } from "./components/SiteChrome";
+import { SITE_BASE_PATH } from "./site-config";
 
 const capabilities = [
   {
@@ -259,6 +262,8 @@ const specializations = [
   "Reproducible Scientific Computing",
 ];
 
+const activePreprintCount = 4;
+
 export default function Home() {
   return (
     <Site>
@@ -269,12 +274,12 @@ export default function Home() {
             <span>Bioinformatician · Computational Biologist</span>
             <small className="hero-affiliation">Research Scientist · <a href="https://feinstein.northwell.edu/" target="_blank" rel="noreferrer" aria-label="Visit The Feinstein Institutes for Medical Research, Northwell Health website (opens in a new tab)">The Feinstein Institutes for Medical Research, Northwell Health <span aria-hidden="true">↗</span></a></small>
           </div>
-          <h1>Decoding <em>biological complexity.</em></h1>
-          <p className="hero-lead">I transform high-dimensional genomic and multi-omics data into reliable, interpretable insights that support scientific discovery.</p>
+          <h1>I find the biology hiding in <em>population-scale genetic data.</em></h1>
+          <p className="hero-lead">Research Scientist at The Feinstein Institutes for Medical Research, Northwell Health. I build statistical-genetics workflows for psychiatric, cognitive and imaging genomics—from approximately 4,000 brain-imaging phenotypes in UK Biobank to 4,719 circulating proteins tested against psychiatric and cognitive traits.</p>
           <ul className="hero-specializations" aria-label="Areas of specialization">
             {specializations.map((specialization) => <li key={specialization}>{specialization}</li>)}
           </ul>
-          <div className="hero-actions"><a className="button button-primary" href="/about">About me <span aria-hidden="true">→</span></a><a className="button button-secondary" href="/publications">Publications</a><a className="button button-secondary" href="/skills-specializations">Technical skills</a></div>
+          <div className="hero-actions"><Link className="button button-primary" href="/about">About me <span aria-hidden="true">→</span></Link><Link className="button button-secondary" href="/publications">Publications</Link><Link className="button button-secondary" href="/skills-specializations">Expertise</Link></div>
           <div className="profile-links" aria-label="Professional profiles">
             <a href="https://scholar.google.com/citations?user=vBDV0QkAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="View Jibin John's Google Scholar profile (opens in a new tab)">Google Scholar ↗</a>
             <a href="https://pubmed.ncbi.nlm.nih.gov/?term=jibin+john+" target="_blank" rel="noreferrer" aria-label="View Jibin John's publications on PubMed (opens in a new tab)">PubMed ↗</a>
@@ -284,32 +289,22 @@ export default function Home() {
         </div>
         <div className="portrait-wrap home-portrait">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="portrait-card"><img src="/jibin-professional-portrait.png" alt="Professional portrait of Jibin John" /></div>
+          <div className="portrait-card"><Image src={`${SITE_BASE_PATH}/jibin-professional-portrait.png`} alt="Professional portrait of Jibin John" width={1254} height={1254} sizes="(max-width: 720px) 78vw, (max-width: 1100px) 42vw, 520px" priority /></div>
           <div className="portrait-note home-tech-note"><span className="tech-note-mark">{`</>`}</span><span><strong>Scientific computing</strong><small>Python · R · Linux · HPC · Cloud</small></span></div>
           <div className="home-focus-chip">Genomics + Data + Applied AI</div>
         </div>
       </section>
 
       <section className="credential-bar" aria-label="Professional summary">
-        <div className="credential-item"><strong>PhD in Genetics</strong><span>Scientific foundation</span></div>
-        <div className="credential-item"><strong>10+ years</strong><span>Bioinformatics & genomics</span></div>
-        <a className="credential-item credential-link" href="/publications" aria-label={`View all ${journalArticles.length + preprints.length} publications`}><strong>{journalArticles.length + preprints.length} publications</strong><span>Articles & preprints</span></a>
-        <div className="credential-item"><strong>HPC-scale computing</strong><span>HPC · cloud · parallel workflows</span></div>
+        <div className="credential-item"><strong>PhD in Genetics</strong><span>University of Delhi · 2017</span></div>
+        <Link className="credential-item credential-link" href="/publications" aria-label={`View all ${journalArticles.length} peer-reviewed articles`}><strong>{journalArticles.length} peer-reviewed articles</strong><span>JAMA Psychiatry · Biological Psychiatry</span></Link>
+        <div className="credential-item"><strong>Since 2011</strong><span>Human genetics & genomics</span></div>
+        <div className="credential-item"><strong>UK Biobank · deCODE · PGC</strong><span>Population-scale cohorts</span></div>
       </section>
 
       <section className="section page-shell" id="expertise">
-        <SectionHeading eyebrow="Core capabilities" title="Evidence-informed analysis across the biological-data lifecycle." intro="Each area follows a distinct, literature-grounded workflow—from study design and primary processing to statistical analysis, interpretation and reproducible computational delivery." />
-        <nav className="capability-jump-nav" aria-label="Jump to a capability group">
-          {capabilityGroups.map((group) => <a href={`#${group.id}`} key={group.id}>{group.label}</a>)}
-        </nav>
+        <SectionHeading eyebrow="Core capabilities" title="What I actually do with a dataset." intro="Six connected areas, each grounded in workflows I have run on real studies—from study design and primary processing to statistical analysis, interpretation and reproducible delivery." />
         <CapabilityGroups groups={capabilityGroups} />
-        <div className="capability-cta">
-          <div>
-            <p>Project conversations</p>
-            <h3>Have a complex biological dataset or defined analysis question?</h3>
-          </div>
-          <a className="button button-light" href="/contact">Discuss a project <span aria-hidden="true">→</span></a>
-        </div>
       </section>
 
       <section className="home-process-section"><div className="page-shell">
@@ -326,7 +321,7 @@ export default function Home() {
       <section className="section page-shell">
         <SectionHeading eyebrow="Selected scientific work" title="Experience with complex, high-dimensional biological data." intro="Representative programs show the combination of statistical genetics, biological interpretation and scalable computing used across my work." />
         <div className="home-work-grid">
-          {researchPrograms.slice(0, 5).map((project, index) => (
+          {researchPrograms.slice(0, 6).map((project, index) => (
             <article key={project.title}>
               <span>0{index + 1}</span>
               <p>{project.metric}</p>
@@ -354,21 +349,21 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <div className="center-action"><a className="button button-primary" href="/research">Explore research experience →</a></div>
+        <div className="center-action"><Link className="button button-primary" href="/research">Explore research experience →</Link></div>
       </section>
 
       <section className="home-about-band"><div className="page-shell home-about-grid">
         <div><p className="eyebrow"><span />About me</p><h2>A hands-on computational scientist with a genetics foundation.</h2></div>
-        <div><p>My work has moved from family-based rare-variant research to population-scale GWAS, multi-omics, clinical-exome analysis and scientific data systems. Across these settings, I focus on dependable analysis, reproducible code and evidence that collaborators can interpret.</p><a href="/about">Read my professional journey <span aria-hidden="true">→</span></a></div>
+        <div><p>My work has moved from family-based rare-variant research to population-scale GWAS, multi-omics, clinical-exome analysis and scientific data systems. Across these settings, I focus on dependable analysis, reproducible code and evidence that collaborators can interpret.</p><Link href="/about">Read my professional journey <span aria-hidden="true">→</span></Link></div>
       </div></section>
 
       <section className="section page-shell home-scholarship">
-        <SectionHeading eyebrow="Scientific record" title="Published research and conference contributions." intro={`${journalArticles.length} peer-reviewed articles, ${preprints.length} preprints and ${conferencePublications.length} published conference abstracts are organized in the complete record.`} />
+        <SectionHeading eyebrow="Scientific record" title="Published research and conference contributions." intro={`${journalArticles.length} peer-reviewed articles, ${activePreprintCount} active preprints and ${conferencePublications.length} published conference abstracts are organized in the complete record. Superseded preprints remain labelled in the full publication history.`} />
         <div className="publication-list">{journalArticles.slice(0, 3).map((publication) => <a className="publication" href={publication.href} target="_blank" rel="noreferrer" key={publication.title}><div className="publication-meta"><span>{publication.year}</span><span>{publication.venue}</span></div><div><h3>{publication.title}</h3><p>{publication.authors}</p></div><span className="publication-arrow">↗</span></a>)}</div>
-        <div className="center-action dual-action"><a className="button button-primary" href="/publications">View publications</a><a className="button button-secondary" href="/conferences">Conference record</a></div>
+        <div className="center-action dual-action"><Link className="button button-primary" href="/publications">View publications</Link><Link className="button button-secondary" href="/conferences">Conference record</Link></div>
       </section>
 
-      <section className="contact-section home-project-contact"><div className="contact-orbit" /><div className="page-shell contact-inner"><p className="eyebrow light"><span />Research & data projects</p><h2>Need rigorous support for complex data?</h2><p>I welcome conversations about clearly defined bioinformatics, computational biology, scientific data-analysis and applied AI/ML projects where reproducibility and careful interpretation matter.</p><div className="hero-actions contact-actions"><a className="button button-light" href="mailto:johnjibinv@gmail.com?subject=Bioinformatics%20or%20data%20project">Discuss a project →</a><a className="button button-outline-light" href="/contact">Contact details</a></div></div></section>
+      <section className="contact-section home-project-contact"><div className="contact-orbit" /><div className="page-shell contact-inner"><p className="eyebrow light"><span />Roles & collaborations</p><h2>Open to consequential scientific work.</h2><p>I am open to research-scientist and computational-biology roles, and to collaborations in psychiatric genetics, statistical genetics and reproducible genomic analysis.</p><div className="hero-actions contact-actions"><Link className="button button-light" href="/contact">Contact details →</Link></div></div></section>
     </Site>
   );
 }

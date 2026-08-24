@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { learning } from "../data";
 import { PageHero, SectionHeading, Site } from "../components/SiteChrome";
 
@@ -13,7 +14,7 @@ export default function ContinuingEducationPage() {
       eyebrow="Continuing education"
       title="Professional Development & Continuing Learning"
       intro="Scientific computing and genomic research evolve continuously. Alongside formal academic training, I develop new capabilities through structured courses, specialist programs, professional training and direct application in research projects."
-      actions={<><a className="button button-primary" href="#record">View learning record</a><a className="button button-secondary" href="/skills-specializations">Explore expertise</a></>}
+      actions={<><a className="button button-primary" href="#record">View learning record</a><Link className="button button-secondary" href="/skills-specializations">Explore expertise</Link></>}
       aside={<div className="learning-orbit" aria-label="Learn, apply, build and share"><span>Learn</span><span>Apply</span><span>Build</span><span>Share</span></div>}
     />
 
@@ -49,6 +50,6 @@ export default function ContinuingEducationPage() {
       </div>
     </section>
 
-    <section className="contact-ribbon"><div className="page-shell"><div><p className="eyebrow light"><span />Connected practice</p><h2>Continuing education strengthens the research and computational work.</h2></div><div><a className="button button-light" href="/skills-specializations">View expertise</a><a className="button button-outline-light" href="/research">Research programs</a></div></div></section>
+    <section className="contact-ribbon"><div className="page-shell"><div><p className="eyebrow light"><span />Connected practice</p><h2>Continuing education strengthens the research and computational work.</h2></div><div><Link className="button button-light" href="/skills-specializations">View expertise</Link><Link className="button button-outline-light" href="/research">Research programs</Link></div></div></section>
   </Site>;
 }

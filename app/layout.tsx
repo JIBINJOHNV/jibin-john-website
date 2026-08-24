@@ -35,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       "https://www.linkedin.com/in/jibin-john-46b18a171/",
       "https://scholar.google.com/citations?user=vBDV0QkAAAAJ&hl=en",
       "https://pubmed.ncbi.nlm.nih.gov/?term=jibin+john+",
+      "https://github.com/JIBINJOHNV",
     ],
     knowsAbout: ["Bioinformatics", "Computational biology", "Scientific data analysis", "Statistical genetics", "Psychiatric genomics", "Genome-wide association studies", "Multi-omics", "Applied AI and machine learning", "Reproducible scientific computing"],
   };

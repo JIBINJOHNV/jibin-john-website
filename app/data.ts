@@ -309,7 +309,7 @@ export const conferencePublications: Publication[] = [
     note: "Linked to an exact-title scholarly search because the exported record did not provide a stable DOI.",
   },
   {
-    year: "2017",
+    year: "WCPG 2015 · supplement 2017",
     title: "Exome Sequencing Identifies a Compound Heterozygous Mutation in a Gene From the Histone Methyltransferase Complex in Familial Schizophrenia",
     authors: "J. John, P. Kukshal, T. Bhatia, S. N. Deshpande, V. L. Nimgaonkar, B. K. Thelma",
     venue: "European Neuropsychopharmacology · 23rd World Congress of Psychiatric Genetics (WCPG)",
@@ -318,7 +318,7 @@ export const conferencePublications: Publication[] = [
     note: "Presented at WCPG 2015 and indexed in the 2017 journal supplement.",
   },
   {
-    year: "2017",
+    year: "WCPG 2016 · supplement 2017",
     title: "Findings From Continuing Gene Hunt in Families With Schizophrenia",
     authors: "B. K. Thelma, J. John, P. Kukshal, T. Bhatia, V. L. Nimgaonkar, S. N. Deshpande",
     venue: "European Neuropsychopharmacology · 24th World Congress of Psychiatric Genetics (WCPG)",
@@ -348,6 +348,8 @@ export const confirmedConferences = [
   { date: "2–4 March 2017", meeting: "42nd ISHG Annual Meeting / International Symposium", location: "Bengaluru, India", role: "Poster presenter", title: "An Ultra-rare Heterozygous Variant Identified in a Tissue Inhibitor of Metalloproteinase Family Gene in Familial Schizophrenia" },
   { date: "3–5 March 2016", meeting: "41st ISHG Annual Meeting & International Conference", location: "Chennai, India", role: "Poster presenter", title: "Discovery of Putative Causal Variants in TAAR1 in Familial and Sporadic Schizophrenia Patients by Whole Exome Sequencing" },
   { date: "16–20 October 2015", meeting: "23rd World Congress of Psychiatric Genetics", location: "Toronto, Canada", role: "Poster presenter · ICMR travel grant", title: "Exome Sequencing Identifies a Compound Heterozygous Mutation in a Gene From the Histone Methyltransferase Complex in Familial Schizophrenia" },
+  { date: "2015", meeting: "Indian Society of Human Genetics Annual Meeting", location: "Mumbai, India", role: "Confirmed attendance", title: "Attendance record; no presentation claim attached." },
+  { date: "2012", meeting: "Indian Society of Human Genetics Annual Meeting", location: "Chandigarh, India", role: "Confirmed attendance", title: "Attendance record; no presentation claim attached." },
   { date: "22–25 January 2014", meeting: "International Conference of Human Genetics & 39th ISHG Annual Meeting", location: "Ahmedabad, India", role: "Poster presenter · Best Poster Award", title: "Role of miRNA Binding Site SNPs in Candidate Genes in a North Indian Schizophrenia Cohort" },
 ];
 
@@ -424,7 +426,7 @@ export const experiences: Experience[] = [
         items: [
           "Co-developed the DIMPLE-GWAS framework and applied it to approximately 4,000 imaging-derived phenotypes in about 33,000 UK Biobank participants, deriving 25 latent genetic phenotypes, 104 novel genome-wide significant loci and replication evidence in ABCD.",
           "Implemented two-sample Mendelian-randomization workflows across 4,719 deCODE and 2,923 UKB-PPP proteins and major psychiatric or cognitive outcomes, producing 113 Bonferroni-significant associations, including 46 described as novel in the analysis.",
-          "Ran pleiotropic meta-analysis across schizophrenia and cognitive traits, resolving hundreds of pleiotropic loci and using functional analysis to distinguish neurodevelopmental, synaptic and apoptotic mechanisms.",
+          "Ran PLEIO-based meta-analysis across schizophrenia and cognitive traits, identifying 768 pleiotropic loci, including 166 novel loci, and distinguishing neurodevelopmental, mature synaptic and mRNA-translation-initiation biology.",
           "Investigated shared and disorder-specific schizophrenia–bipolar genetic architecture using bidirectional mtCOJO, Genomic SEM, genetic correlation, pleiotropic analysis and functional interpretation.",
           "Performed colocalization, multivariable Mendelian randomization and cross-tissue validation linking brain-imaging and plasma-proteomic signals with brain-tissue proteomic and transcriptomic evidence.",
           "Contributed statistical simulations and interpretation for work examining the combined implications of monogenic and polygenic risk in preimplantation genetic testing.",
@@ -465,7 +467,7 @@ export const experiences: Experience[] = [
       {
         title: "Product responsibility",
         items: [
-          "Developed the bioinformatics backend of a cloud software-as-a-service platform for exome and genome analysis in rare Mendelian disease and cancer-genomics workflows.",
+          "Developed the bioinformatics backend of a cloud software-as-a-service platform for germline rare-disease and cancer-genomics knowledge integration.",
           "Converted clinical-genomics requirements into computational rules, data models, APIs and evidence-processing components.",
           "Worked across scientific and software teams on workflow logic, schemas, provenance and technical communication.",
         ],
@@ -491,7 +493,7 @@ export const experiences: Experience[] = [
   },
   {
     period: "MAY-2021–APR-2022",
-    role: "Computational Laboratory Manager",
+    role: "Bioinformatics & Genomic Analysis · National Genomic Core",
     organization: "National Genomic Core (NGC) · Centre for DNA Fingerprinting and Diagnostics (CDFD)",
     location: "Hyderabad, India",
     institutions: [
@@ -499,17 +501,17 @@ export const experiences: Experience[] = [
       { name: "National Genomic Core · CDFD", href: "https://ngc.cdfd.org.in/", logo: "/institutions/cdfd.png" },
     ],
     points: [
-      "Managed end-to-end computational operations for an institutional next-generation sequencing facility.",
-      "Delivered, supervised and taught NGS workflows for clinical, agricultural and microbiological projects.",
+      "Supported end-to-end computational analysis for an institutional next-generation sequencing facility.",
+      "Delivered and taught NGS workflows for clinical, agricultural and microbiological projects.",
     ],
     detailSections: [
       {
-        title: "Facility & operational leadership",
+        title: "NGS facility computing & analysis",
         items: [
-          "Led day-to-day computational-laboratory operations, project intake, NGS data management, workflow QC, delivery tracking and scientific-computing support.",
+          "Supported project intake, NGS data management, workflow QC, delivery tracking and scientific computing for the facility.",
           "Maintained analysis infrastructure, standardized workflows, organized project data and supported reproducible handoff of results.",
-          "Prepared and maintained operational procedures and coordinated computational work with the sequencing and wet-laboratory teams.",
-          "Managed, guided and supervised junior computational staff across multiple concurrent analysis projects.",
+          "Prepared and maintained operational procedures and coordinated computational work with sequencing and wet-laboratory teams.",
+          "Guided junior researchers and technical staff across multiple concurrent analysis projects.",
         ],
       },
       {
@@ -838,8 +840,8 @@ export const researchPrograms = [
   },
   {
     title: "Schizophrenia–cognition pleiotropy",
-    metric: "Pleiotropy · pathways · loci",
-    copy: "Using cognitive endophenotypes to improve locus discovery and resolve neurodevelopmental, synaptic and apoptotic biology in schizophrenia.",
+    metric: "768 pleiotropic loci · 166 novel",
+    copy: "PLEIO-based meta-analysis of schizophrenia with educational attainment and cognitive performance. Concordant loci tracked neurodevelopment, discordant loci tracked mature synaptic function, and dual loci implicated mRNA translation initiation.",
     publication: {
       venue: "Biological Psychiatry",
       brand: "biological-psychiatry",
@@ -872,13 +874,4 @@ export const researchPrograms = [
   { title: "Schizophrenia–bipolar architecture", metric: "Shared and disorder-specific genetics", copy: "Cross-disorder work integrating pleiotropic analysis, conditional GWAS, Genomic SEM, genetic correlation and functional interpretation." },
   { title: "Rare-variant psychiatric genetics", metric: "Families · exomes · biological convergence", copy: "Family-based studies of TAAR1, TIMP2, PTPRA and oligogenic neurodevelopmental genes in schizophrenia." },
   { title: "Clinical genomics & knowledge systems", metric: "Exome · CNV · RDF/SPARQL", copy: "Germline evidence review, phenotype-aware prioritization, CNV annotation and cloud-based biomedical knowledge integration." },
-];
-
-export const skillGroups = [
-  { title: "Statistical genetics & population genomics", intro: "Population-scale analysis of complex-trait architecture.", items: ["GWAS and family-based association", "GWAS meta-analysis", "Pleiotropic and multi-trait analysis", "SNP heritability and genetic correlation", "LDSC and Genomic SEM", "Polygenic risk scores", "Conditional analysis and mtCOJO", "Rare-variant burden testing"] },
-  { title: "Post-GWAS & multi-omics", intro: "Connecting associated variants to genes, proteins, tissues and mechanisms.", items: ["Fine-mapping and colocalization", "Mendelian randomization", "pQTL, eQTL and sQTL integration", "Gene mapping and prioritization", "MAGMA and gene-set analysis", "Tissue and cell-type enrichment", "Single-cell integration", "Pathway and network analysis"] },
-  { title: "NGS, clinical & functional genomics", intro: "End-to-end sequence analysis and evidence-based interpretation.", items: ["Whole-exome and whole-genome analysis", "Germline variant calling and annotation", "Clinical-exome analysis", "Phenotype-aware prioritization", "CNV annotation and review", "Bulk RNA-seq", "Single-cell RNA-seq / ATAC-seq", "ChIP-seq and epigenomics"] },
-  { title: "Microbial & comparative genomics", intro: "Broader sequencing expertise developed across institutional projects.", items: ["Bacterial genome assembly", "16S, 18S and ITS analysis", "Shotgun metagenomics", "Taxonomic and functional profiling", "Oxford Nanopore analysis", "Pathogen and SARS-CoV-2 workflows"] },
-  { title: "Research computing & pipelines", intro: "Scalable, reproducible analysis on local, HPC and cloud systems.", items: ["Python, R and Bash", "Linux and SLURM", "GCP and AWS", "Docker and containerization", "Parallel processing", "Schema validation and QC", "Logging and provenance", "Git and reproducible delivery"] },
-  { title: "Scientific data & applied AI", intro: "Structured evidence systems with domain review and traceability.", items: ["pandas, Polars, NumPy and PyArrow", "scikit-learn", "RDF and SPARQL", "Biomedical knowledge graphs", "LLM API integration", "Structured JSON extraction", "Retrieval and agent prototypes", "Human-in-the-loop validation"] },
 ];

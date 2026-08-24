@@ -52,7 +52,7 @@ export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
                       <span className="capability-group-title">
                         <span aria-hidden="true">{String(group.index + 1).padStart(2, "0")}</span>
                         <span>{group.kicker}</span>
-                        <strong>{group.label}</strong>
+                        <h3>{group.label}</h3>
                       </span>
                       <span className="capability-group-summary">
                         {group.capabilities.map((capability) => capability.title).join(", ")}
@@ -75,7 +75,9 @@ export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
                 <ol className="home-capability-list">
                   {activeGroup.capabilities.map((capability) => (
                     <li key={capability.title}>
-                      {activeGroup.capabilities.length > 1 ? <strong>{capability.title}</strong> : null}
+                      <h4 className={activeGroup.capabilities.length === 1 ? "visually-hidden" : undefined}>
+                        {capability.title}
+                      </h4>
                       <p>{capability.detail}</p>
                     </li>
                   ))}

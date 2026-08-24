@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { conferencePublications, journalArticles, preprints, type Publication } from "../data";
 import { PageHero, SectionHeading, Site } from "../components/SiteChrome";
 
@@ -10,7 +11,7 @@ function PublicationList({ items }: { items: Publication[] }) {
 
 export default function PublicationsPage() {
   return <Site active="Publications"><PageHero eyebrow="Publications & scholarly work" title="A complete record, organized by publication type." intro="Peer-reviewed journal articles, current preprints and formally published conference abstracts are separated so each contribution is easy to understand and verify." actions={<><a className="button button-primary" href="#journal-articles">Journal articles</a><a className="button button-secondary" href="#preprints">Preprints</a></>} aside={<div className="stat-stack"><div><strong>{journalArticles.length}</strong><span>Journal articles</span></div><div><strong>{preprints.length}</strong><span>Preprints</span></div><div><strong>{conferencePublications.length}</strong><span>Published abstracts</span></div></div>} />
-    <nav className="page-subnav" aria-label="Publication categories"><a href="#journal-articles">Peer-reviewed articles</a><a href="#preprints">Preprints</a><a href="#conference-publications">Conference publications</a><a href="/conferences">Attendance & presentations</a></nav>
+    <nav className="page-subnav" aria-label="Publication categories"><a href="#journal-articles">Peer-reviewed articles</a><a href="#preprints">Preprints</a><a href="#conference-publications">Conference publications</a><Link href="/conferences">Attendance & presentations</Link></nav>
     <section className="section page-shell" id="journal-articles"><SectionHeading eyebrow="Peer-reviewed journal articles" title={`${journalArticles.length} articles across psychiatric genetics, genomics and related fields.`} intro="Author lists are shown in publication order, with J. John representing Jibin John as published." /><PublicationList items={journalArticles} /></section>
     <section className="section alternate-section" id="preprints"><div className="page-shell"><SectionHeading eyebrow="Preprints" title="Current and historical preprint records." intro="Preprints are kept separate from peer-reviewed journal articles and linked to their DOI records." /><PublicationList items={preprints} /></div></section>
     <section className="section page-shell" id="conference-publications"><SectionHeading eyebrow="Published conference abstracts" title={`${conferencePublications.length} abstracts published in journal supplements and proceedings.`} intro="This category records formally published conference outputs. The separate Conferences page identifies first-author records and distinguishes authorship from confirmed personal attendance." /><PublicationList items={conferencePublications} /></section>

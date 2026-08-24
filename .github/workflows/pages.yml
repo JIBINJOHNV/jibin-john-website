@@ -1,4 +1,4 @@
-name: Publish all website themes to GitHub Pages
+name: Publish the main website to GitHub Pages
 
 on:
   push:
@@ -22,100 +22,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the original website
+      - name: Check out the main website
         uses: actions/checkout@v4
-        with:
-          ref: main
-          path: original-site
-
-      - name: Check out Ocean Blue and Soft Rose
-        uses: actions/checkout@v4
-        with:
-          ref: ocean-blue-soft-rose
-          path: ocean-site
-
-      - name: Check out Oxblood, Brick and Blush
-        uses: actions/checkout@v4
-        with:
-          ref: oxblood-brick-blush
-          path: oxblood-site
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22.13.0"
           cache: npm
-          cache-dependency-path: |
-            original-site/package-lock.json
-            ocean-site/package-lock.json
-            oxblood-site/package-lock.json
 
-      - name: Install original website dependencies
-        working-directory: original-site
+      - name: Install dependencies
         run: npm ci
 
-      - name: Prepare original website paths
-        working-directory: original-site
-        env:
-          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website
-        run: node scripts/prepare-github-pages.mjs
+      - name: Lint
+        run: npm run lint
 
-      - name: Build original website
-        working-directory: original-site
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build the static website
         env:
           NEXT_PUBLIC_BASE_URL: https://jibinjohnv.github.io/jibin-john-website
           NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website
         run: npx next build
 
-      - name: Install Ocean Blue and Soft Rose dependencies
-        working-directory: ocean-site
-        run: npm ci
-
-      - name: Prepare Ocean Blue and Soft Rose paths
-        working-directory: ocean-site
-        env:
-          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/ocean-blue-soft-rose
-        run: node scripts/prepare-github-pages.mjs
-
-      - name: Build Ocean Blue and Soft Rose
-        working-directory: ocean-site
-        env:
-          NEXT_PUBLIC_BASE_URL: https://jibinjohnv.github.io/jibin-john-website/ocean-blue-soft-rose
-          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/ocean-blue-soft-rose
-        run: npx next build
-
-      - name: Install Oxblood, Brick and Blush dependencies
-        working-directory: oxblood-site
-        run: npm ci
-
-      - name: Prepare Oxblood, Brick and Blush paths
-        working-directory: oxblood-site
-        env:
-          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/oxblood-brick-blush
-        run: node scripts/prepare-github-pages.mjs
-
-      - name: Build Oxblood, Brick and Blush
-        working-directory: oxblood-site
-        env:
-          NEXT_PUBLIC_BASE_URL: https://jibinjohnv.github.io/jibin-john-website/oxblood-brick-blush
-          NEXT_PUBLIC_SITE_BASE_PATH: /jibin-john-website/oxblood-brick-blush
-        run: npx next build
-
-      - name: Combine all versions
-        run: |
-          mkdir -p pages-artifact/ocean-blue-soft-rose
-          mkdir -p pages-artifact/oxblood-brick-blush
-          cp -R original-site/out/. pages-artifact/
-          cp -R ocean-site/out/. pages-artifact/ocean-blue-soft-rose/
-          cp -R oxblood-site/out/. pages-artifact/oxblood-brick-blush/
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload all websites
+      - name: Upload the main website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./pages-artifact
+          path: ./out
 
       - name: Deploy to GitHub Pages
         id: deployment

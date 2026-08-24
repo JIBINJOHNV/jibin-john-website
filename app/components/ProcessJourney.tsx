@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export type ProcessStep = {
   number: string;
@@ -76,7 +77,6 @@ export function ProcessJourney({ steps }: { steps: ProcessStep[] }) {
     if (!root) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
       return;
     }
 
@@ -104,7 +104,7 @@ export function ProcessJourney({ steps }: { steps: ProcessStep[] }) {
               <span>{step.number}</span>
               <span className="home-process-icon"><ProcessIcon icon={step.icon} /></span>
             </div>
-            <strong>{step.title}</strong>
+            <h3>{step.title}</h3>
             <small>{step.subtitle}</small>
             <p>{step.description}</p>
             <ul aria-label={`${step.title} tools and focus areas`}>
@@ -114,11 +114,11 @@ export function ProcessJourney({ steps }: { steps: ProcessStep[] }) {
           </article>
         ))}
       </div>
-      <a className="home-process-cta" href="/research">
+      <Link className="home-process-cta" href="/research">
         <span>See this workflow applied to real studies</span>
         <strong>Explore my research</strong>
         <i aria-hidden="true">→</i>
-      </a>
+      </Link>
     </div>
   );
 }

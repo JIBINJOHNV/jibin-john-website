@@ -100,7 +100,7 @@ export function SpecializationAccordion({
                   <span className="specialization-number">{specialization.number}</span>
                   <span className="specialization-card-copy">
                     <span className="specialization-kicker">Scientific specialization</span>
-                    <span className="specialization-title">{specialization.title}</span>
+                    <h3 className="specialization-title">{specialization.title}</h3>
                     <span className="specialization-scope">{specialization.scope}</span>
                     <span className="specialization-prompt">
                       Workflow, branches, tools & resources

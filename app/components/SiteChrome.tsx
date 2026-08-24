@@ -15,7 +15,7 @@ const mobileNav = [...primaryNav, ["Contact", "/contact"]];
 
 export function Header({ active }: { active?: string }) {
   return (
-    <header className="site-header">
+    <header className="site-header" id="top">
       <Link className="brand" href="/" aria-label="Jibin John homepage">
         <span className="brand-mark" aria-hidden="true">JJ</span>
         <span><strong>Jibin John, PhD</strong><small>Bioinformatics · Computational Biology</small></span>
@@ -46,7 +46,7 @@ export function Footer() {
           </Link>
           <p>Bioinformatics, computational biology and reproducible data analysis for complex scientific questions.</p>
         </div>
-        <div><strong>Profile</strong><Link href="/about">About Me</Link><Link href="/research">Research</Link><Link href="/skills-specializations">Skills & Specializations</Link><Link href="/continuing-education">Continuing Education</Link></div>
+        <div><strong>Profile</strong><Link href="/about">About Me</Link><Link href="/research">Research</Link><Link href="/skills-specializations">Expertise</Link><Link href="/continuing-education">Continuing Education</Link></div>
         <div><strong>Scholarship</strong><Link href="/publications">Publications</Link><Link href="/conferences">Conferences</Link><Link href="/blog">Blog</Link><a href="https://scholar.google.com/citations?user=vBDV0QkAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a></div>
         <div><strong>Connect</strong><a href="mailto:johnjibinv@gmail.com">johnjibinv@gmail.com</a><a href="https://pubmed.ncbi.nlm.nih.gov/?term=jibin+john+" target="_blank" rel="noreferrer">PubMed ↗</a><a href="https://www.linkedin.com/in/jibin-john-46b18a171/" target="_blank" rel="noreferrer">LinkedIn ↗</a><span>New York, USA</span></div>
       </div>
@@ -56,7 +56,12 @@ export function Footer() {
 }
 
 export function Site({ active, children }: { active?: string; children: ReactNode }) {
-  return <main id="top"><Header active={active} />{children}<Footer /></main>;
+  return <>
+    <a className="skip-link" href="#main-content">Skip to main content</a>
+    <Header active={active} />
+    <main id="main-content" tabIndex={-1}>{children}</main>
+    <Footer />
+  </>;
 }
 
 export function PageHero({ eyebrow, title, intro, actions, aside }: { eyebrow: string; title: string; intro: string; actions?: ReactNode; aside?: ReactNode }) {
