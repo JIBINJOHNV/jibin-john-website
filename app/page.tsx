@@ -23,14 +23,6 @@ const capabilities = [
     ],
   },
   {
-    title: "Clinical Genomics & Variant Interpretation",
-    detail: "Analytical-quality review · population, disease and functional annotation · phenotype- and inheritance-aware prioritization · segregation evidence · ACMG/AMP classification · genotype–phenotype synthesis · periodic reinterpretation",
-    references: [
-      { label: "Harrison et al., 2019", href: "https://doi.org/10.1002/cphg.93" },
-      { label: "Mighton & Lerner-Ellis, 2022", href: "https://doi.org/10.1002/gcc.23048" },
-    ],
-  },
-  {
     title: "Exome Sequencing Analysis",
     detail: "FASTQ and target-coverage QC · reference alignment · duplicate handling · base-quality recalibration · germline variant calling · joint genotyping · call-set filtering and QC · functional annotation",
     references: [
@@ -139,13 +131,32 @@ const capabilities = [
   },
 ];
 
+const clinicalGenomicsCapabilities = [
+  {
+    title: "Phenotype-Driven Exome & Genome Analysis",
+    detail: "Filter and prioritize candidate variants using technical quality, ancestry-aware population frequency, molecular consequence, inheritance, segregation and HPO-encoded phenotype.",
+  },
+  {
+    title: "ACMG/AMP Germline Variant Classification",
+    detail: "Evaluate SNVs and small indels using population, computational, functional, segregation, de novo, allelic and disease-mechanism evidence.",
+  },
+  {
+    title: "CNV & Structural-Variant Interpretation",
+    detail: "Assess constitutional deletions, duplications and other structural variants using gene content, dosage sensitivity, inheritance, phenotype concordance and published evidence.",
+  },
+  {
+    title: "Clinical Evidence Synthesis & Reanalysis",
+    detail: "Integrate gene–disease validity, phenotype concordance, segregation and functional evidence; document limitations and support reinterpretation as knowledge evolves.",
+  },
+];
+
 const capabilityGroups = [
   {
     id: "genetic-epidemiology",
     label: "Genetic Epidemiology & Statistical Genetics",
     kicker: "Population and molecular-trait genetics",
     intro: "Association discovery, downstream interpretation and shared genetic architecture.",
-    capabilities: [capabilities[0], capabilities[1], capabilities[6], capabilities[7]],
+    capabilities: [capabilities[0], capabilities[1], capabilities[5], capabilities[6]],
     links: [
       { label: "Related research", href: "/research" },
       { label: "Relevant publications", href: "/publications" },
@@ -156,7 +167,9 @@ const capabilityGroups = [
     label: "Clinical Genomics",
     kicker: "Phenotype-aware variant interpretation",
     intro: "Clinically informed germline variant assessment, evidence review and genotype–phenotype synthesis.",
-    capabilities: [capabilities[2]],
+    summary: "Candidate prioritization · ACMG/AMP classification · CNV/SV interpretation · Evidence synthesis and reanalysis",
+    capabilities: clinicalGenomicsCapabilities,
+    numberedCapabilities: true,
     links: [
       { label: "Related research", href: "/research" },
       { label: "Relevant publications", href: "/publications" },
@@ -167,7 +180,7 @@ const capabilityGroups = [
     label: "Sequencing & Rare-Variant Genomics",
     kicker: "From sequence data to interpretable variation",
     intro: "Exome and genome analysis spanning variant discovery, rare-variant testing and biological interpretation.",
-    capabilities: [capabilities[3], capabilities[4], capabilities[5]],
+    capabilities: [capabilities[2], capabilities[3], capabilities[4]],
     links: [
       { label: "Related research", href: "/research" },
       { label: "Relevant publications", href: "/publications" },
@@ -178,7 +191,7 @@ const capabilityGroups = [
     label: "Transcriptomics & Multi-Omics",
     kicker: "Molecular phenotypes and regulatory biology",
     intro: "Bulk, single-cell, epigenomic and proteomic data analyzed in biological context.",
-    capabilities: [capabilities[8], capabilities[9], capabilities[10], capabilities[11]],
+    capabilities: [capabilities[7], capabilities[8], capabilities[9], capabilities[10]],
     links: [
       { label: "Related research", href: "/research" },
       { label: "Methods & tools", href: "/skills-specializations" },
@@ -189,7 +202,7 @@ const capabilityGroups = [
     label: "Microbial Genomics & Microbiome",
     kicker: "Microbial genomes and communities",
     intro: "Genome-resolved and community-level analysis with contamination-aware interpretation.",
-    capabilities: [capabilities[12], capabilities[13]],
+    capabilities: [capabilities[11], capabilities[12]],
     links: [
       { label: "Related research", href: "/research" },
       { label: "Relevant publications", href: "/publications" },
@@ -200,7 +213,7 @@ const capabilityGroups = [
     label: "Data Science & Computational Infrastructure",
     kicker: "Statistics, automation and scalable delivery",
     intro: "Reproducible analysis systems for high-dimensional biological data and applied AI.",
-    capabilities: [capabilities[14], capabilities[15], capabilities[16]],
+    capabilities: [capabilities[13], capabilities[14], capabilities[15]],
     links: [
       { label: "Methods & tools", href: "/skills-specializations" },
       { label: "Related research", href: "/research" },

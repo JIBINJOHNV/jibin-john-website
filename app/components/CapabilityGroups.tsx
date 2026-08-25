@@ -11,7 +11,9 @@ type CapabilityGroup = {
   id: string;
   label: string;
   kicker: string;
+  summary?: string;
   capabilities: Capability[];
+  numberedCapabilities?: boolean;
 };
 
 export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
@@ -55,7 +57,7 @@ export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
                         <h3>{group.label}</h3>
                       </span>
                       <span className="capability-group-summary">
-                        {group.capabilities.map((capability) => capability.title).join(", ")}
+                        {group.summary ?? group.capabilities.map((capability) => capability.title).join(", ")}
                       </span>
                     </button>
                   </article>
@@ -68,17 +70,24 @@ export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
                 aria-label={`${activeGroup.label} details`}
                 className={`capability-group-panel capability-group-${activeGroup.index + 1}${
                   activeGroup.capabilities.length === 1 ? " is-single" : ""
-                }`}
+                }${activeGroup.numberedCapabilities ? " is-numbered" : ""}`}
                 id={`${activeGroup.id}-details`}
                 role="region"
               >
                 <ol className="home-capability-list">
-                  {activeGroup.capabilities.map((capability) => (
+                  {activeGroup.capabilities.map((capability, capabilityIndex) => (
                     <li key={capability.title}>
-                      <h4 className={activeGroup.capabilities.length === 1 ? "visually-hidden" : undefined}>
-                        {capability.title}
-                      </h4>
-                      <p>{capability.detail}</p>
+                      {activeGroup.numberedCapabilities ? (
+                        <span aria-hidden="true" className="capability-item-number">
+                          {String(capabilityIndex + 1).padStart(2, "0")}
+                        </span>
+                      ) : null}
+                      <div>
+                        <h4 className={activeGroup.capabilities.length === 1 ? "visually-hidden" : undefined}>
+                          {capability.title}
+                        </h4>
+                        <p>{capability.detail}</p>
+                      </div>
                     </li>
                   ))}
                 </ol>
