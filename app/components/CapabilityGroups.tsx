@@ -14,6 +14,7 @@ type CapabilityGroup = {
   summary?: string;
   capabilities: Capability[];
   numberedCapabilities?: boolean;
+  note?: string;
 };
 
 export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
@@ -91,6 +92,9 @@ export function CapabilityGroups({ groups }: { groups: CapabilityGroup[] }) {
                     </li>
                   ))}
                 </ol>
+                {activeGroup.note ? (
+                  <p className="capability-group-note">{activeGroup.note}</p>
+                ) : null}
               </section>
             ) : null}
           </div>

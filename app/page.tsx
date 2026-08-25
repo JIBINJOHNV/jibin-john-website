@@ -144,10 +144,6 @@ const clinicalGenomicsCapabilities = [
     title: "CNV & Structural-Variant Interpretation",
     detail: "Assess constitutional deletions, duplications and other structural variants using gene content, dosage sensitivity, inheritance, phenotype concordance and published evidence.",
   },
-  {
-    title: "Clinical Evidence Synthesis & Reanalysis",
-    detail: "Integrate gene–disease validity, phenotype concordance, segregation and functional evidence; document limitations and support reinterpretation as knowledge evolves.",
-  },
 ];
 
 const capabilityGroups = [
@@ -167,9 +163,10 @@ const capabilityGroups = [
     label: "Clinical Genomics",
     kicker: "Phenotype-aware variant interpretation",
     intro: "Clinically informed germline variant assessment, evidence review and genotype–phenotype synthesis.",
-    summary: "Candidate prioritization · ACMG/AMP classification · CNV/SV interpretation · Evidence synthesis and reanalysis",
+    summary: "Candidate prioritization · ACMG/AMP classification · CNV/SV interpretation",
     capabilities: clinicalGenomicsCapabilities,
     numberedCapabilities: true,
+    note: "Across these areas, I integrate genotype–phenotype evidence, document analytical limitations and support reinterpretation as clinical and scientific knowledge evolves.",
     links: [
       { label: "Related research", href: "/research" },
       { label: "Relevant publications", href: "/publications" },

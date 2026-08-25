@@ -759,6 +759,16 @@ button, summary { font: inherit; }
 }
 .capability-group-panel.is-numbered .home-capability-list h4 { margin-top: 1px; }
 .capability-group-panel.is-numbered .home-capability-list p { margin-top: 12px; }
+.capability-group-note {
+  margin: 0;
+  padding: 18px 24px 19px;
+  border-top: 1px solid var(--content-line);
+  background: #2b5365;
+  color: var(--content-muted);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.65;
+}
 .capability-cta { margin-top: 20px; padding: 29px 31px; display: flex; align-items: center; justify-content: space-between; gap: 34px; border-radius: 18px; background: var(--navy-950); color: #fff; }
 .capability-cta p { margin: 0 0 8px; color: #70dcd7; font-size: 8.5px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .capability-cta h3 { max-width: 680px; margin: 0; color: #fff; font-size: clamp(21px, 2.2vw, 29px); line-height: 1.25; letter-spacing: -.025em; }
@@ -3111,8 +3121,8 @@ body {
 
 .home-hero {
   min-height: auto;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 38px;
+  padding-bottom: 30px;
 }
 
 .home-hero h1 { font-size: clamp(44px, 5vw, 62px); }
@@ -3210,7 +3220,7 @@ body {
 }
 
 @media (max-width: 720px) {
-  .home-hero { padding-top: 48px; padding-bottom: 52px; }
+  .home-hero { padding-top: 34px; padding-bottom: 38px; }
   .home-hero h1 { font-size: clamp(38px, 11vw, 48px); }
   .hero-specializations { display: flex !important; gap: 8px; }
   .hero-specializations li:nth-child(n + 5) { display: none; }
