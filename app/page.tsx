@@ -312,7 +312,7 @@ export default function Home() {
         <div className="credential-item"><strong>PhD in Genetics</strong><span>University of Delhi · 2017</span></div>
         <Link className="credential-item credential-link" href="/publications" aria-label={`View all ${journalArticles.length} peer-reviewed articles`}><strong>{journalArticles.length} peer-reviewed articles</strong><span>JAMA Psychiatry · Biological Psychiatry</span></Link>
         <div className="credential-item"><strong>Since 2011</strong><span>Human genetics & genomics</span></div>
-        <div className="credential-item"><strong>UK Biobank · deCODE · PGC</strong><span>Population-scale cohorts</span></div>
+        <div className="credential-item"><strong>UK Biobank · deCODE · PGC · FinnGen</strong><span>Population-scale cohorts</span></div>
       </section>
 
       <section className="section page-shell" id="expertise">
